@@ -25,6 +25,7 @@ namespace Quickbooks_Monitor
         {
             Settings.Current.autoSearch = cbAuto.Checked;
             Settings.Current.startMinimized = cbMinimized.Checked;
+            Settings.Current.openAll = cbOpenAll.Checked;
             Settings.Current.directory = tbDirectory.Text;
 
             XmlHandler.Current.Write(Settings.Current);

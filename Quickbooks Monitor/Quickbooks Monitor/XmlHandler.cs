@@ -49,6 +49,7 @@ namespace Quickbooks_Monitor
                 settings.minimizeWarning = true;
                 settings.autoSearch = true;
                 settings.startMinimized = false;
+                settings.openAll = false;
 
                 Write(settings);
             }

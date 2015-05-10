@@ -37,6 +37,7 @@
             this.btnBrowse = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cbMinimized = new System.Windows.Forms.CheckBox();
+            this.cbOpenAll = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnSave
@@ -115,6 +116,16 @@
             this.cbMinimized.Text = "Start Minimized";
             this.cbMinimized.UseVisualStyleBackColor = true;
             // 
+            // cbOpenAll
+            // 
+            this.cbOpenAll.AutoSize = true;
+            this.cbOpenAll.Location = new System.Drawing.Point(253, 20);
+            this.cbOpenAll.Name = "cbOpenAll";
+            this.cbOpenAll.Size = new System.Drawing.Size(178, 17);
+            this.cbOpenAll.TabIndex = 10;
+            this.cbOpenAll.Text = "Allow opening of all QuickBooks";
+            this.cbOpenAll.UseVisualStyleBackColor = true;
+            // 
             // FrmSettings
             // 
             this.AcceptButton = this.btnSave;
@@ -122,6 +133,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(459, 157);
+            this.Controls.Add(this.cbOpenAll);
             this.Controls.Add(this.cbMinimized);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBrowse);
@@ -152,5 +164,6 @@
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox cbMinimized;
+        private System.Windows.Forms.CheckBox cbOpenAll;
     }
 }

@@ -97,37 +97,64 @@ namespace Quickbooks_Monitor
         {
             ContextMenu cm = new ContextMenu();
 
-            cm.MenuItems.Add(new MenuItem
+            notInUse.Sort();
+            inUse.Sort();
+
+            List<string> all = new List<string>();
+            all = notInUse.Concat(inUse).ToList();
+            all.Sort();
+
+            if (!settings.openAll)
+            {
+                cm.MenuItems.Add(new MenuItem
+                    {
+                        Enabled = false,
+                        Text = "Available Quickbooks:",
+                        DefaultItem = true
+                    });
+
+                for (int i = 0; i < notInUse.Count; i++)
+                {
+                    MenuItem mi = new MenuItem();
+                    mi.Text = notInUse[i];
+                    mi.Click += new EventHandler(Available_ItemClicked);
+                    cm.MenuItems.Add(mi);
+                }
+
+                cm.MenuItems.Add("-");
+
+                cm.MenuItems.Add(new MenuItem
+                {
+                    Enabled = false,
+                    Text = "QuickBooks in use:",
+                    //DefaultItem = true
+                });
+
+                for (int i = 0; i < inUse.Count; i++)
+                {
+                    MenuItem mi = new MenuItem();
+                    mi.Text = inUse[i];
+                    mi.Enabled = false;
+
+                    cm.MenuItems.Add(mi);
+                }
+            }
+            else
+            {
+                cm.MenuItems.Add(new MenuItem
                 {
                     Enabled = false,
                     Text = "Available Quickbooks:",
                     DefaultItem = true
                 });
 
-            for (int i = 0; i < notInUse.Count; i++)
-            {
-                MenuItem mi = new MenuItem();
-                mi.Text = notInUse[i];
-                mi.Click += new EventHandler(Available_ItemClicked);
-                cm.MenuItems.Add(mi);
-            }
-
-            cm.MenuItems.Add("-");
-
-            cm.MenuItems.Add(new MenuItem
-            {
-                Enabled = false,
-                Text = "QuickBooks in use:",
-                //DefaultItem = true
-            });
-
-            for (int i = 0; i < inUse.Count; i++)
-            {
-                MenuItem mi = new MenuItem();
-                mi.Text = inUse[i];
-                mi.Enabled = false;
-
-                cm.MenuItems.Add(mi);
+                for (int i = 0; i < all.Count; i++)
+                {
+                    MenuItem mi = new MenuItem();
+                    mi.Text = all[i];
+                    mi.Click += new EventHandler(Available_ItemClicked);
+                    cm.MenuItems.Add(mi);
+                }
             }
 
             cm.MenuItems.Add("-");

@@ -16,6 +16,7 @@ namespace Quickbooks_Monitor
 
         public bool autoSearch;
         public bool startMinimized;
+        public bool openAll;
 
         public Settings()
         {
